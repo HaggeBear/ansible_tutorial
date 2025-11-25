@@ -1,2 +1,2 @@
 # ansible_tutorial
-Here I wil learn about Ansible
+Here I will learn about Ansible. I follow the LearnLinux tutorial. 
