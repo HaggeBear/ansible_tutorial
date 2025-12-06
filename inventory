@@ -1,5 +1,5 @@
-10.170.207.80
-10.170.207.54
-10.170.207.195
-10.170.207.98
+10.203.70.80 apache_package=apache2 php_package=libapache2-mod-php
+10.203.70.54 apache_package=apache2 php_package=libapache2-mod-php
+10.203.70.195 apache_package=apache2 php_package=libapache2-mod-php
+10.203.70.98 apache_package=httpd php_package=php
 
