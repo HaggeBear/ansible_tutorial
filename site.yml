@@ -1,0 +1,39 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: update all servers
+    package:
+      update_cache: yes
+
+
+- hosts: web_servers
+  become: true
+  tasks:
+
+  - name: install apache pnd php
+    package:
+      name: 
+        - "{{ apache_package }}"
+        - "{{ php_package }}"  
+      state: latest
+      update_cache: yes
+
+
+- hosts: db_servers
+  become: true
+  tasks:
+  
+  - name: install mariaDB package (AlmaLinux)
+    dnf:
+      name: mariedb
+      state: latest
+    when: ansible_distribution == "AlmaLinux"
+
+  - name: install mariaDB package (Ubuntu)
+    apt:
+      name: mariadb-server
+      state: latest
+    when: ansible_distribution == "Ubuntu"
