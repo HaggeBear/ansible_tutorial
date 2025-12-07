@@ -1,1 +1,3 @@
-ansible-playbook --ask-become-pass install_apache.yml
+ansible-playbook --ask-become-pass {FILE}
+ansible-playboook --list-tags {FILE}
+ansible-playbook --tags alma --ask-become-pass {FILE}

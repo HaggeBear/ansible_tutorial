@@ -5,6 +5,7 @@
   pre_tasks:
 
   - name: update all servers
+    tags: always
     package:
       update_cache: yes
 
@@ -14,6 +15,7 @@
   tasks:
 
   - name: install apache pnd php
+    tags: apache,apache2
     package:
       name: 
         - "{{ apache_package }}"
@@ -27,13 +29,29 @@
   tasks:
   
   - name: install mariaDB package (AlmaLinux)
+    tags: mariadb,db,almalinux
     dnf:
       name: mariedb
       state: latest
     when: ansible_distribution == "AlmaLinux"
 
   - name: install mariaDB package (Ubuntu)
+    tags: mariadb,db,ubuntu
     apt:
       name: mariadb-server
       state: latest
     when: ansible_distribution == "Ubuntu"
+
+
+- hosts: file_servers
+  become: true
+  tasks:
+
+  - name: install samba package
+    tags: samba
+    package:
+      name: samba
+      state: latest
+
+
+
