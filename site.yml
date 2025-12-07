@@ -22,6 +22,16 @@
         - "{{ php_package }}"  
       state: latest
       update_cache: yes
+  
+  - name: copy defult html file for site
+    tags: apache,web,httpd
+    copy:
+      src: files/
+      dest: /var/www/html/
+      owner: root
+      group: root
+      mode: 0644
+
 
 
 - hosts: db_servers
